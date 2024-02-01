@@ -1,0 +1,87 @@
+﻿@model ML.Usuario
+@{
+    ViewData["Title"] = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Agregar Nuevo Usuario</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-horizontal">
+                    @if (Model != null)
+                    {
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => model.IdUsuario, new { @class = "visually-hidden" })
+                                @Html.TextBoxFor(model => model.IdUsuario, new { @class = "visually-hidden form-control" })
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Nombre)
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-list"></i></span>
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @autocomplete = "false" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ApellidoPaterno)
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-list"></i></span>
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @autocomplete = "false" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ApellidoMaterno)
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-list"></i></span>
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @autocomplete = "false" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Edad)
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-list"></i></span>
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @autocomplete = "false" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Email)
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-list"></i></span>
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @autocomplete = "false" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a><input type="submit" value="Enviar" class="btn btn-success col-md-12" id="xlsx" /></a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="@Url.Action("GetAll","Usuario")"><input type="button" value="Cancelar" class="btn btn-danger col-md-12" id="txt" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

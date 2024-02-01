@@ -1,0 +1,33 @@
+﻿@model ML.Usuario
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/Login.css" />
+</head>
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form>
+        <h3>Inicio de Sesión</h3>
+
+        <label for="email">Email</label>
+        <input type="text" placeholder="Email" id="Email" name="Email">
+
+        <label for="contraseña">Contraseña</label>
+        <input type="password" placeholder="Contraseña" id="Contraseña" name="Contraseña">
+
+        <button type="submit">Iniciar</button>
+        <button type="button" onclick="window.location.href='@Url.Action("Form", "Login")'" class="btn btn-danger">Registrar</button>
+    </form>
+}
+

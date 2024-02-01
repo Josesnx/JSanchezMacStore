@@ -1,0 +1,49 @@
+﻿@model ML.Usuario
+@{
+    ViewData["Title"] = "Form";
+    Layout = null;
+}
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/Register.css" />
+</head>
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+@using (Html.BeginForm("Form", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form>
+        <h3>Nuevo Usuario</h3>
+
+        <div class="name-group">
+            <label for="email">Email</label>
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email", @autocomplete = "false" })
+
+            <label for="nombre">Nombre</label>
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "Nombre", @autocomplete = "false" })
+
+            <label for="apellidoPaterno">Apellido Paterno</label>
+            @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido Paterno", @autocomplete = "false" })
+
+            <label for="apellidoMaterno">Apellido Materno</label>
+            @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido Materno", @autocomplete = "false" })
+        </div>
+
+        <div class="other-fields">
+            <label for="edad">Edad</label>
+            @Html.TextBoxFor(model => model.Edad, new { @class = "form-control", @placeholder = "Edad", @autocomplete = "false" })
+
+            <label for="contraseña">Contraseña</label>
+            @Html.TextBoxFor(model => model.Contraseña, new { @class = "form-control", @placeholder = "Contraseña", @autocomplete = "false", @type = "password" })
+        </div>
+
+        <button type="submit">Registrar</button>
+        <button type="button" onclick="window.location.href='@Url.Action("Login", "Login")'" class="btn btn-danger">Regresar</button>
+    </form>
+}
+
